@@ -1,0 +1,13 @@
+LICENSE
+README.md
+pyproject.toml
+mcp_audit_scanner.egg-info/PKG-INFO
+mcp_audit_scanner.egg-info/SOURCES.txt
+mcp_audit_scanner.egg-info/dependency_links.txt
+mcp_audit_scanner.egg-info/entry_points.txt
+mcp_audit_scanner.egg-info/requires.txt
+mcp_audit_scanner.egg-info/top_level.txt
+mcp_auditor/__init__.py
+mcp_auditor/cli.py
+mcp_auditor/scanner.py
+tests/test_scanner.py
