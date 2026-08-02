@@ -1,8 +1,10 @@
 import argparse
-import sys
 import os
+import sys
+
 from rich.console import Console
 from rich.table import Table
+
 from mcp_auditor.scanner import scan_directory, scan_file
 
 console = Console()

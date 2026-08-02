@@ -1,7 +1,8 @@
-import pytest
 import os
 import tempfile
+
 from mcp_auditor.scanner import scan_file
+
 
 def test_scan_subprocess():
     with tempfile.NamedTemporaryFile(mode='w', suffix='.py', delete=False) as f:

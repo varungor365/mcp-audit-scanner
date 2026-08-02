@@ -1,6 +1,6 @@
 import ast
 import os
-from typing import List, Dict
+
 
 class Rule:
     def __init__(self, id: str, description: str, severity: str):
@@ -14,7 +14,7 @@ RULES = [
     Rule("MCP003", "Hardcoded API keys or secrets", "HIGH")
 ]
 
-def scan_file(filepath: str) -> List[Dict]:
+def scan_file(filepath: str) -> list[dict]:
     results = []
     try:
         with open(filepath, 'r', encoding='utf-8') as f:
@@ -32,7 +32,7 @@ def scan_file(filepath: str) -> List[Dict]:
                                 "file": filepath,
                                 "snippet": ast.unparse(node)
                             })
-                    elif isinstance(node.func, ast.Name):
+                    elif isinstance(node.func, ast.Name):  # noqa: SIM102
                         if node.func.id == 'open':
                             results.append({
                                 "rule": RULES[0],
@@ -44,7 +44,7 @@ def scan_file(filepath: str) -> List[Dict]:
                 # MCP003: Check for hardcoded API keys
                 if isinstance(node, ast.Assign):
                     for target in node.targets:
-                        if isinstance(target, ast.Name) and 'API_KEY' in target.id.upper():
+                        if isinstance(target, ast.Name) and 'API_KEY' in target.id.upper():  # noqa: SIM102
                             if isinstance(node.value, ast.Constant) and isinstance(node.value.value, str):
                                 results.append({
                                     "rule": RULES[2],
@@ -52,13 +52,13 @@ def scan_file(filepath: str) -> List[Dict]:
                                     "file": filepath,
                                     "snippet": ast.unparse(node)
                                 })
-    except Exception as e:
+    except Exception:  # noqa: BLE001, S110
         # Ignore parse errors for non-python files or invalid syntax
         pass
         
     return results
 
-def scan_directory(dirpath: str) -> List[Dict]:
+def scan_directory(dirpath: str) -> list[dict]:
     all_results = []
     for root, _, files in os.walk(dirpath):
         for file in files:
