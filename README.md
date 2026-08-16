@@ -57,3 +57,11 @@ See [CLAUDE.md](CLAUDE.md) for contribution guidelines.
 ## 📄 License
 
 MIT © Varun Ruhella. See [LICENSE](LICENSE) for details.
+
+## Who this is for
+
+Use MCP Audit Scanner when you need a repeatable static review of Model Context Protocol server definitions, tool exposure, configuration risk, or security hygiene before connecting an MCP server to an AI client.
+
+## Why star this repository
+
+Star this project if you are building MCP tooling, evaluating AI-agent integrations, or want a small security-focused CLI to extend with your own audit rules.
