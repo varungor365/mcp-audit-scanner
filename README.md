@@ -1,29 +1,25 @@
-<div align="center">
+# MCP Audit Scanner
 
-# 🛡️ mcp-audit-scanner
-
-**Static analysis CLI tool for auditing Model Context Protocol (MCP) servers.**
+**Static analysis CLI for auditing Model Context Protocol (MCP) servers before you connect them to an AI client.**
 
 [![PyPI version](https://badge.fury.io/py/mcp-audit-scanner.svg)](https://badge.fury.io/py/mcp-audit-scanner)
 [![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-<br/>
-
-</div>
-
 ---
 
 ## ✨ Why this exists
 
-With the rise of the Model Context Protocol (MCP), developers are plugging third-party servers into their local IDEs and AI agents. If these MCP servers have unrestricted file system access or vulnerable prompt injections, your machine is at risk.
+Developers are connecting third-party Model Context Protocol (MCP) servers to local IDEs and AI agents. A static preflight review can catch risky filesystem, subprocess, and credential patterns before a server is trusted.
 
 **mcp-audit-scanner** statically analyzes Python-based MCP servers using AST (Abstract Syntax Tree) to detect insecure patterns like direct `os.system()` calls, unrestricted `open()`, and hardcoded secrets.
 
 ### Features
-- 🔍 **Static AST Analysis:** Parses your Python code without executing it.
-- 🚫 **Catches Common Vulns:** Flags `os.system`, `subprocess.run`, unrestricted `open()`.
-- 🎨 **Beautiful Output:** Uses `rich` to display vulnerabilities in an easy-to-read table.
+
+- **Static AST analysis:** Parses Python source without executing it.
+- **High-signal rules:** Flags shell/subprocess calls, unrestricted `open()`, and API-key-like assignments.
+- **Readable output:** Uses `rich` to display rule IDs, severity, locations, and snippets.
+- **Local-first operation:** Performs no network access and does not modify the scanned code.
 
 ---
 
