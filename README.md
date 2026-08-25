@@ -21,6 +21,10 @@ Developers are connecting third-party Model Context Protocol (MCP) servers to lo
 - **Readable output:** Uses `rich` to display rule IDs, severity, locations, and snippets.
 - **Local-first operation:** Performs no network access and does not modify the scanned code.
 
+## Limitations
+
+This is a small Python AST preflight, not a complete security assessment. It does not execute code, resolve imports, inspect non-Python MCP servers, prove that a server is safe, or replace dependency scanning, sandboxing, least-privilege review, or human approval. A clean result means only that the current rules did not match the scanned source.
+
 ---
 
 ## 🚀 Quickstart
