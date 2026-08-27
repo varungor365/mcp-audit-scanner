@@ -29,6 +29,8 @@ This is a small Python AST preflight, not a complete security assessment. It doe
 
 ## 🚀 Quickstart
 
+The repository includes [examples/scan_sample.sh](examples/scan_sample.sh), which scans an intentionally suspicious but never executed Python file. The scanner parses source code with AST and does not run the sample.
+
 ### Install
 ```bash
 pip install mcp-audit-scanner
